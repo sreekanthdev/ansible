@@ -1,0 +1,16 @@
+---
+- name: creating dir and coping passwd files
+  hosts: all
+  tasks:
+   - name: creating directory
+     file:
+      name: /home/ubuntu/mydir
+      state: directory
+   - name: coping password file to mydir
+     copy: 
+      src: /etc/passwd
+      dest: /home/ubuntu/mydir
+
+
+
+...

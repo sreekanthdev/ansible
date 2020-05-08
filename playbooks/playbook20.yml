@@ -1,0 +1,11 @@
+---
+- name: installing the git all managed nodes
+  apt: 
+   name: git
+   state: present
+   update_cache: yes
+
+
+
+
+...

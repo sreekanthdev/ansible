@@ -1,0 +1,14 @@
+---
+- name: Implementing the include module
+  hosts: all
+  tasks:
+   - name: include module implementing
+     include: playbook20.yml
+
+
+
+
+
+
+
+...

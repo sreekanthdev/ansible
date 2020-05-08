@@ -1,0 +1,20 @@
+---
+- name: Debug module using in installation
+  hosts: all
+  tasks:
+   - name: installing s/w and capturing the output of module
+     apt:
+      name: tomcat8
+      state: present
+      update_cache: no
+     register: results
+   - name: using debug module for output 
+     debug:
+      var: results
+
+
+
+
+
+
+...

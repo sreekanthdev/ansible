@@ -1,0 +1,29 @@
+---
+- name: Implementing error handling in ansible
+  hosts: all 
+  tasks: 
+   - block: 
+      - name: installing tomcat7
+        apt: 
+         name: tomcat7 
+         state: present
+         update_cache: yes
+     rescue: 
+      - name: installing tomcat8 if tomcat7 is fails
+        apt: 
+         name: tomcat8 
+         state: present
+         update_cache: yes
+        register: a
+     always: 
+      - name: excute the all other modules
+        debug: 
+         var: a
+
+
+
+
+
+
+
+...

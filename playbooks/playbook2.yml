@@ -1,0 +1,16 @@
+---
+- name: installing git and cloning git remote repository
+  hosts: all 
+  become: yes
+  tasks: 
+   - name: installing git all managed nodes
+     apt: 
+      name: git
+      state: present 
+      update_cache: yes
+   - name: cloning the remote repository all managed nodes
+     git: 
+      repo: https://github.com/selenium-saikrishna/maven.git
+      dest: /tmp/git1
+
+...

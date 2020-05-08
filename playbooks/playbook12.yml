@@ -1,0 +1,30 @@
+---
+- name: using tag modules for the user creation and installing s/w
+  hosts: all 
+  tasks: 
+   - name: user creation 
+     user: 
+      name: malli
+      password: malli
+      shell: /bin/bash
+      uid: 1007
+     tags: 
+      - user_creation
+   - name: installing git 
+     apt: 
+      name: git
+      state: present
+     tags: 
+      - git_installation
+   - name: copy the passwd file to the /home/ubuntu
+     copy: 
+      src: /etc/passwd
+      dest: /home/ubuntu
+
+
+
+
+
+
+
+...

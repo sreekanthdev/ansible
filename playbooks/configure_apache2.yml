@@ -1,0 +1,19 @@
+---
+- name: configure apache2
+  hosts: all 
+  tasks: 
+   - name: calling chaild playbooks using include module
+     include: "{{item}}"
+     with_items: 
+      - install_apache2.yml
+      - edit_apache2.yml
+      - restart_apache2.yml
+      - check_url_apache2.yml
+
+
+
+
+
+
+
+...

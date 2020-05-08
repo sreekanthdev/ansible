@@ -1,0 +1,16 @@
+---
+- name: install tomcat8
+  apt: 
+   name: "{{item}}"
+   state: present
+   update_cache: yes
+  with_items: 
+   - tomcat8
+   - tomcat8-admin
+
+
+
+
+
+
+...

@@ -1,0 +1,10 @@
+---
+- name: pause the tomcat8 for 10 seconds
+  pause: 
+   seconds: 5
+
+
+
+
+
+...

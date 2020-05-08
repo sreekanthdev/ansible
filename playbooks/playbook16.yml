@@ -1,0 +1,29 @@
+---
+- name: user creation
+  hosts: all
+  tasks:
+   - name: checking if user is present or not
+     user: 
+      name: mouni
+      password: mouni
+      home: /home/mouni
+     register: a
+   - name: display the output of the user module
+     debug: 
+      var: a
+   - name: creating user if not there like same name
+     user: 
+      name: sree
+      password: sree
+      home: /home/sree
+      shell: /bin/bash
+     when: 
+      a.changed==false
+
+
+
+
+
+
+
+...

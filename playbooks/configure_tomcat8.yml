@@ -1,0 +1,18 @@
+---
+- name: configuring tomcat8 using the include module  
+  hosts: all
+  tasks: 
+   - name: configuring the tomcat8 
+     include: "{{item}}"
+     with_items: 
+      - install_tomcat8.yml
+      - copy_tomcat_users.yml
+      - change_port_tomcat8.yml
+      - restart_tomcat8.yml
+      - check_url_response.yml
+
+...
+
+
+
+

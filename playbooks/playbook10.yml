@@ -1,0 +1,21 @@
+---
+- name: Installing/Uninstalling differnt kind of s/w
+  hosts: all
+  tasks:
+   - name: Installing/Uninstalling different kind of packages
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items: 
+      - { a: tree , b: absent , c: no}
+      - { a: maven , b: absent , c: no}
+      - { a: tomcat8 , b: absent , c: no}
+      - { a: firewalld , b: absent , c: no}
+      - { a: openjdk-8-jdk , b: absent , c: no}
+   
+
+
+
+
+...

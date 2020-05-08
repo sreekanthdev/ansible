@@ -1,0 +1,26 @@
+---
+- name: using tag modules for the installing and templates
+  hosts: all
+  tasks:  
+   - name: installing s/w packages
+     apt: 
+      name: "{{item}}"
+      state: present 
+     with_items:
+      - apache2
+      - maven
+     tags:
+      - packages
+   - name: template using for example
+     template:
+      src: template/src.j2
+      dest: /home/ubuntu
+     tags: 
+      - configuration
+      
+
+
+
+
+
+...

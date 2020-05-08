@@ -1,0 +1,16 @@
+---
+- name: Installing firewalld
+  hosts: all 
+  vars: 
+   - a: firewalld 
+   - b: present
+   - c: no
+  tasks: 
+   - name: Installing firewalld software
+     apt: 
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+
+
+...

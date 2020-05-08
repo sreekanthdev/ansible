@@ -1,0 +1,27 @@
+---
+- name: configuring apache2
+  hosts: all 
+  tasks: 
+   - name: installing apache2 all managed nodes
+     apt: 
+      name: apache2
+      state: present 
+      update_cache: yes 
+   - name: editing the index file 
+     copy: 
+      content: "WELLCOME TO THE ANSIBLEPLAYBOOKS@"
+      dest: /var/www/html/index.html
+   - name: restarting apache2
+     service: 
+      name: apache2
+      state: restarted
+   - name: checking the response of the manged nodes
+     uri:
+      url: http://172.31.88.191
+      status_code: 200 
+     uri: 
+      url: http://172.31.80.165 
+      status_code: 200
+
+
+...

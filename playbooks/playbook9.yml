@@ -1,0 +1,22 @@
+---
+- name: Installing s/w packages using with_items
+  hosts: all
+  tasks:
+   - name: Installing s/w packges using loops
+     apt:
+      name: "{{item}}"
+      state: present
+      update_cache: yes
+     with_items:
+      - tree
+      - maven
+      - firewalld
+      - apache2
+      - tomcat8
+
+
+
+
+
+
+...

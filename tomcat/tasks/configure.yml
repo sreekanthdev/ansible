@@ -1,0 +1,20 @@
+---
+- name: change port number of tomcat 9090 to 8080
+  replace: 
+   path: "{{path1}}"
+   regexp: "{{port1}}"
+   replace: "{{port2}}"
+  notify: check_url_response
+- name: copy the tomcat-users.xml file to /etc/tomcat8/server.xml
+  copy: 
+   src: "{{file1}}"
+   dest: "{{dest1}}"
+
+
+
+
+
+
+
+
+...

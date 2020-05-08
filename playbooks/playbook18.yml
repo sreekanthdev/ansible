@@ -1,0 +1,33 @@
+---
+- name: Error handling
+  hosts: all 
+  tasks: 
+   - block: 
+      - name: Installing tomcat7
+        apt: 
+         name: tomcat7
+         state: present 
+     rescue: 
+      - name: Install tomcat8
+        apt: 
+         name: tomcat8
+         state: present
+     always: 
+      - name: replace the port 8080 to 9090
+        replace:
+         regexp: "9090"
+         replace: "9000"
+         path: /etc/tomcat8/server.xml
+      - name: check url response
+        uri: 
+         url: "{{item}}"
+         status_code: 200
+        with_items: 
+         - http://172.31.88.191:9000
+         - http://172.31.80.165:9000
+
+
+
+
+
+...

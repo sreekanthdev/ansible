@@ -1,0 +1,17 @@
+---
+- name: editing the index.html page file
+  copy: 
+   content: "Hello calling chaild play"
+   dest: /var/www/html/index.html
+
+
+
+
+
+
+
+
+
+
+
+...

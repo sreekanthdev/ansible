@@ -1,0 +1,29 @@
+---
+- name: creating multiple users nd file with user home directory
+  hosts: all
+  tasks:
+   - name: creating multiple users
+     user:
+      name: "{{item.a}}"
+      password: "{{item.b}}"
+      shell: "{{item.c}}"
+      home: "{{item.d}}"
+     with_items:
+      - {a: mouni , b: mouni , c: /bin/bash , d: /home/mouni}
+      - {a: manju , b: manju , c: /bin/bash , d: /home/manju}
+      - {a: ashok , b: ashok , c: /bin/bash , d: /home/ashok}
+      - {a: linga , b: linga , c: /bin/bash , d: /home/linga}
+   - name: creating file with user home directory
+     file:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+     with_items:
+      - {a: /home/mouni , b: touch}
+      - {a: /home/manju , b: touch}
+      - {a: /home/ashok , b: touch}
+      - {a: /home/linga , b: touch}
+
+
+
+
+...
